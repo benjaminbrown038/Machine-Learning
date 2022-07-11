@@ -26,6 +26,7 @@ z=z[:,None]
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.pipeline import make_pipeline
+from sklearn.metrics import accuracy_score
 
 degree = 9
 model = make_pipeline(PolynomialFeatures(degree), LinearRegression())
