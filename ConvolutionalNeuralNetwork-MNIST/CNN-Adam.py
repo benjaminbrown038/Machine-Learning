@@ -20,37 +20,20 @@ y_train = to_categorical(y_train,10)
 y_test = to_categorical(y_test,10)
 
 model = Sequential()
-model.add(Conv2D(8,
-                (3,3),
-                padding = 'same',
-                activation = 'relu',
-                input_shape = (1,28,28)))
-model.add(MaxPool2D((2,2),
-                    padding='same'))
-model.add(Conv2D(64,
-                (3,3),
-                padding = 'same',
-                activation = 'relu'))
-model.add(MaxPool2D((2,2),
-                    padding = 'same'))
-model.add(Conv2D(10,
-                (3,3),
-                padding = 'same',
-                activation = 'softmax'))
-model.add(MaxPool2D((4,4),
-                    padding = 'same'))
+model.add(Conv2D(8,(3,3),padding = 'same',activation = 'relu',input_shape = (1,28,28)))
+model.add(MaxPool2D((2,2),padding='same'))
+model.add(Conv2D(64,(3,3),padding = 'same',activation = 'relu'))
+model.add(MaxPool2D((2,2),padding = 'same'))
+model.add(Conv2D(10,(3,3),padding = 'same',activation = 'softmax'))
+model.add(MaxPool2D((4,4),padding = 'same'))
 model.add(Flatten())
 
 loss = CategoricalCrossentropy()
 ac = Accuracy()
 opt = Adam()
 
-model.compile(loss = loss,
-            accuracy = ac,
-            optimizer = opt)
-
-model.fit(x_train,
-            y_train,
+model.compile(loss = loss,accuracy = ac,optimizer = opt)
+model.fit(x_train,y_train,
             batch_size = 60000,
             epochs = 25,
             validation_data = (x_test,y_test)
