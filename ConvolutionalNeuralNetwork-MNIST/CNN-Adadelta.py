@@ -19,13 +19,8 @@ y_train = to_categorical(y_train,10)
 y_test = to_categorical(y_test,10)
 
 model = Sequential()
-model.add(Conv2D(8,(3,3),
-                    padding='same',
-                    activation = 'relu',
-                    input_shape=(1,28,28)))
-
+model.add(Conv2D(8,(3,3),padding='same',activation = 'relu',input_shape=(1,28,28)))
 model.add(MaxPool2D((2,2),padding = 'same'))
-
 model.add(Conv2D(64,(3,3),padding='same',activation='relu'))
 model.add(MaxPool2D((4,4),padding='same'))
 model.add(Conv2D(10,(3,3),padding='same',activation = 'relu'))
